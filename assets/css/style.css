@@ -1,16 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
 /*------General code-------*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 :root{
+    --brand: #ff523b;
+    --dark: #092032;
+    --body: #516171;
     --white-color: #ffffff;
     --dark-color:rgba(255, 255, 255, 0);
     --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
 }
+
+body {
+    font-family: "Barlow", sans-serif;
+    color: var(--body);
+    line-height: 1.7;
+}
+
+h1,h2,h3,h4,h5,h6,
+.display-1,.display-2,.display-3,.display-4 {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+/*------General code-------*/
+
+
 
 
 /*----Navbar-------*/
@@ -18,6 +37,7 @@
 .navbar{
     background:radial-gradient(#fff, #ffffff);
     padding: 10px;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
 }
 
 .navbar-brand h1{
@@ -133,35 +153,95 @@ nav ul li{
 
 
 /*----------hero-------*/
-.hero{
-    background: linear-gradient(rgba(9, 32, 50, 0.3), rgba(9, 32, 50, 0.3)), url("../images/bg_1.jpg");
-    width: 100%;
-    height: 100vh;
+
+.hero-slider .owl-prev,
+.hero-slider .owl-next{
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: block;
+    display: grid;
+    place-items: center;
+    color: #fff !important;
+    border-radius: 100px;
+    line-height: 0;
+    border-radius: 100px !important;
+    position: absolute;
+    top: 50%;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    transition: all 0.4s ease;
+    margin-top: -30px !important;
+}
+
+.owl-prev {
+    left: 0;
+}
+.owl-next {
+    right: 0;
+}
+
+.hero-slider .owl-prev:hover,
+.hero-slider .owl-next:hover {
+    background-color: var(--brand) !important; 
+}
+
+.owl-dot.active span{
+    background-color: var(--brand) !important;
+}
+
+
+ /* slide */
+ .slide {
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+}
+
+.slide1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/bg_1.jpg");
     background-size: cover;
-    background-position: right center;
+    background-position: center;
     background-repeat: no-repeat;
-    padding-top: 170px;
+    padding-top: 50px; ;
+}
+
+.slide2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/bg_2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top:50px; ;
+}
+
+.slide3 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/bg_3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 50px; ;
+}
+
+.slide .display-3 {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 50px;
 }
 
 
-.hero h3{ 
-    font-weight: bold;
-    color: var(--white-color);
-    font-size: 60px;
-}
 
-
-.hero .btn-hero{
+.btn-hero{
     display: inline-block;
     background:#ff523b;
     padding: 8px 30px;
-    margin: 30px 0;
     border-radius: 30px;
     color: var(--white-color);
     font-weight: 400;
 }
 
-.hero .btn-hero:hover{
+.btn-hero:hover{
     background: none;
     border: 2px solid #ffffff;
     color: #ff523b;
@@ -171,25 +251,12 @@ nav ul li{
 
 
 
-
 /*----------Mobile Responsive------x-------*/
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1920px) {
    
-    .hero h1{
-        font-size: 30px;
-    }
-
-    .hero h3{
+    .slide .display-3{
         font-size: 50px;
-    }
-
-    .hero p{ 
-        font-size: 14px;
-    }
-    
-    .hero .btn-hero{
-        padding: 15px 35px;
     }
     
 }
@@ -198,55 +265,18 @@ nav ul li{
 
 @media only screen and (max-width: 760px) {
     
-    .hero h1{
-        font-size: 30px;
-    }
-
-    .hero h3{
-        font-size: 40px;
-    }
-
-    .hero p{ 
-        font-size: 11px;
-    }
-    
-    .hero .btn-hero{
-        padding: 10px 30px;
-    }
-    
+    .slide .display-3{
+        font-size: 35px;
+    }  
 }
 
 
 
 @media only screen and (max-width: 490px) {
     
-    .hero h1{
-        font-size: 20px;
-        text-align: center;
-        padding-bottom: 10px;
-    }
-
-    .hero h3{
+    .slide .display-3{
         word-wrap: break-word;
         font-size: 30px;
-        text-align: center;
-        padding-bottom: 10px;
-    }
-
-    .hero p{ 
-        word-wrap: break-word;
-        font-size: 12px;
-        text-align: center;
-    }
-
-    .hero .hero-btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .hero .hero-btn{
-        padding: 8px 15px;
     }
     
 }
@@ -254,56 +284,21 @@ nav ul li{
 
 @media only screen and (max-width: 380px) {
    
-    .hero h1{
+
+    .slide .display-3{
+        word-wrap: break-word;
         font-size: 20px;
-        text-align: center;
     }
-
-    .hero h3{
-        word-wrap: break-word;
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .hero p{ 
-        word-wrap: break-word;
-        font-size: 12px;
-        text-align: center;
-    }
-    
-    .hero .btn-hero{
-        padding: 8px 15px;
-        align-items: center;
-    }
-    
+  
 } 
-
-
 
 
 
 @media only screen and (max-width: 300px) {
    
-    .hero h1{
-        font-size: 20px;
+    .slide .display-3{
+        font-size: 18px;
         text-align: center;
-    }
-
-    .hero h3{
-        word-wrap: break-word;
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .hero p{ 
-        word-wrap: break-word;
-        font-size: 12px;
-        text-align: center;
-    }
-    
-    .hero .btn-hero{
-        padding: 5px 13px;
-        align-items: center;
     }
     
 }
